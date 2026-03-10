@@ -1,0 +1,437 @@
+﻿<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aufa Donat & Snack | Kudus - Donat Kentang Lembut</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Shrikhand&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .brand-font {
+            font-family: 'Shrikhand', cursive;
+        }
+
+        .bg-pattern {
+            background-color: #fffbeb;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='#fcd34d' fill-opacity='0.2'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Smooth Transition for Mobile Menu */
+        #mobile-menu {
+            transition: all 0.3s ease-in-out;
+            max-height: 0;
+            overflow: hidden;
+        }
+        #mobile-menu.active {
+            max-height: 400px;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            light: '#fde68a', // amber-200
+                            DEFAULT: '#f59e0b', // amber-500
+                            dark: '#b45309', // amber-700
+                            brown: '#451a03', // warm brown
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-pattern text-gray-800 antialiased selection:bg-brand selection:text-white">
+
+    <!-- Navigasi -->
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 md:h-20">
+                <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                    <i data-lucide="donut" class="h-6 w-6 md:h-8 md:w-8 text-brand mr-2"></i>
+                    <span class="brand-font text-xl md:text-2xl text-brand-brown tracking-wide">Aufa Donat</span>
+                </div>
+                
+                <!-- Menu Desktop & Tablet Lg -->
+                <div class="hidden md:flex space-x-6 lg:space-x-8 items-center">
+                    <a href="#tentang" class="text-sm lg:text-base text-gray-600 hover:text-brand transition-colors font-medium">Tentang</a>
+                    <a href="#menu" class="text-sm lg:text-base text-gray-600 hover:text-brand transition-colors font-medium">Menu</a>
+                    <a href="#ulasan" class="text-sm lg:text-base text-gray-600 hover:text-brand transition-colors font-medium">Ulasan</a>
+                    <a href="#kontak" class="bg-brand hover:bg-brand-dark text-white px-4 py-2 lg:px-6 lg:py-2.5 rounded-full transition-all font-medium shadow-md flex items-center text-sm lg:text-base">
+                        <i data-lucide="phone" class="w-4 h-4 mr-2"></i> Pesan Sekarang
+                    </a>
+                </div>
+
+                <!-- Tombol menu mobile/tablet sm -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="p-2 text-gray-600 hover:text-brand focus:outline-none transition-colors" aria-label="Menu Utama">
+                        <i data-lucide="menu" id="menu-icon" class="h-6 w-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Menu Mobile / Dropdown -->
+        <div id="mobile-menu" class="md:hidden bg-white border-t border-gray-100 shadow-xl overflow-hidden">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#tentang" class="mobile-link block px-4 py-3 text-gray-700 font-medium hover:bg-brand-light/20 rounded-xl">Tentang Kami</a>
+                <a href="#menu" class="mobile-link block px-4 py-3 text-gray-700 font-medium hover:bg-brand-light/20 rounded-xl">Menu Pilihan</a>
+                <a href="#ulasan" class="mobile-link block px-4 py-3 text-gray-700 font-medium hover:bg-brand-light/20 rounded-xl">Ulasan Pelanggan</a>
+                <div class="pt-2">
+                    <a href="#kontak" class="mobile-link block px-4 py-4 text-center bg-brand text-white font-bold rounded-xl shadow-lg active:scale-95 transition-transform">
+                        Pesan via WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-24 pb-12 md:pt-40 md:pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-10 md:gap-16 items-center">
+                <div class="text-center lg:text-left order-2 lg:order-1">
+                    <div class="inline-flex items-center px-4 py-2 rounded-full bg-brand-light/50 text-brand-dark font-semibold text-xs md:text-sm mb-6 border border-brand/20">
+                        <i data-lucide="star" class="w-4 h-4 fill-brand text-brand mr-2"></i>
+                        Donat Kentang No. 1 di Bae, Kudus
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-brand-brown leading-tight mb-6 brand-font">
+                        Maniskan Harimu dengan <span class="text-brand">Aufa Donat</span>
+                    </h1>
+                    <p class="text-base md:text-lg lg:text-xl text-gray-600 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                        Nikmati kelembutan donat kentang legendaris dengan topping glaze melimpah. Fresh dari oven setiap hari untuk menemani momen spesialmu.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="#menu" class="bg-brand text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-brand-dark transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 text-center">
+                            Lihat Menu
+                        </a>
+                        <a href="https://maps.google.com/?q=Aufa+Donat+Snack+Kudus" target="_blank" class="bg-white text-brand-brown border-2 border-brand-brown/10 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-50 transition-all shadow-sm flex items-center justify-center">
+                            <i data-lucide="map-pin" class="w-5 h-5 mr-2 text-brand"></i> Lokasi Toko
+                        </a>
+                    </div>
+                    
+                    <div class="mt-10 flex flex-wrap items-center justify-center lg:justify-start gap-4 md:gap-8 text-sm font-semibold text-gray-500">
+                        <div class="flex items-center"><i data-lucide="check-circle-2" class="w-5 h-5 text-green-500 mr-2"></i> Tersedia Takeaway</div>
+                        <div class="flex items-center"><i data-lucide="truck" class="w-5 h-5 text-brand mr-2"></i> Kirim ke Alamat</div>
+                    </div>
+                </div>
+                
+                <div class="relative order-1 lg:order-2 px-4 sm:px-12 lg:px-0">
+                    <!-- Glow effect -->
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-brand-light rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse"></div>
+                    
+                    <div class="relative z-10">
+                        <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="[Donat Lezat]" class="w-full h-auto object-cover rounded-[1.5rem] md:rounded-[2.5rem] shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-700 border-4 md:border-8 border-white">
+                        
+                        <!-- Floating Badge -->
+                        <div class="absolute -bottom-4 -left-2 md:-bottom-8 md:-left-8 bg-white p-3 md:p-5 rounded-xl md:rounded-2xl shadow-2xl z-20 flex items-center gap-3 md:gap-4 border border-gray-100">
+                            <div class="bg-green-100 p-2 md:p-3 rounded-full text-green-600">
+                                <i data-lucide="clock" class="w-5 h-5 md:w-7 md:h-7"></i>
+                            </div>
+                            <div>
+                                <p class="text-[10px] md:text-xs text-gray-400 uppercase font-black">Ready Setiap Hari</p>
+                                <p class="font-bold text-sm md:text-lg text-gray-800">Buka 09.00 WIB</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Keunggulan Section -->
+    <section id="tentang" class="py-16 md:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 md:mb-20">
+                <span class="text-brand font-bold tracking-widest uppercase text-xs md:text-sm">Keunggulan Kami</span>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-brand-brown mt-2 mb-4">Kenapa Harus Aufa Donat?</h2>
+                <div class="w-20 h-1.5 bg-brand mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
+                <!-- Card 1 -->
+                <div class="group p-8 md:p-10 bg-amber-50/50 rounded-[2rem] text-center border border-transparent hover:border-brand/20 hover:bg-white hover:shadow-xl transition-all duration-300">
+                    <div class="w-16 h-16 md:w-20 md:h-20 mx-auto bg-brand text-white rounded-2xl flex items-center justify-center mb-8 shadow-lg shadow-brand/30 rotate-3 group-hover:rotate-12 transition-transform">
+                        <i data-lucide="cookie" class="w-10 h-10"></i>
+                    </div>
+                    <h3 class="text-xl md:text-2xl font-bold text-brand-brown mb-4">Tekstur Super Lembut</h3>
+                    <p class="text-gray-600 leading-relaxed">Resep donat kentang pilihan yang membuat adonan tetap empuk, lembut, dan tidak seret di tenggorokan.</p>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="group p-8 md:p-10 bg-amber-50/50 rounded-[2rem] text-center border border-transparent hover:border-brand/20 hover:bg-white hover:shadow-xl transition-all duration-300">
+                    <div class="w-16 h-16 md:w-20 md:h-20 mx-auto bg-brand text-white rounded-2xl flex items-center justify-center mb-8 shadow-lg shadow-brand/30 -rotate-3 group-hover:-rotate-12 transition-transform">
+                        <i data-lucide="palette" class="w-10 h-10"></i>
+                    </div>
+                    <h3 class="text-xl md:text-2xl font-bold text-brand-brown mb-4">Varian Topping Hits</h3>
+                    <p class="text-gray-600 leading-relaxed">Dari cokelat lumer hingga tiramisu kekinian. Kami berikan topping melimpah tanpa pelit rasa.</p>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="group p-8 md:p-10 bg-amber-50/50 rounded-[2rem] text-center border border-transparent hover:border-brand/20 hover:bg-white hover:shadow-xl transition-all duration-300 sm:col-span-2 lg:col-span-1">
+                    <div class="w-16 h-16 md:w-20 md:h-20 mx-auto bg-brand text-white rounded-2xl flex items-center justify-center mb-8 shadow-lg shadow-brand/30 rotate-3 group-hover:rotate-12 transition-transform">
+                        <i data-lucide="heart" class="w-10 h-10"></i>
+                    </div>
+                    <h3 class="text-xl md:text-2xl font-bold text-brand-brown mb-4">Harga Merakyat</h3>
+                    <p class="text-gray-600 leading-relaxed">Kualitas premium dengan harga yang sangat terjangkau. Pas untuk pelajar, mahasiswa, dan acara keluarga.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-16 md:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center md:items-end mb-12 text-center md:text-left">
+                <div>
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-brand-brown mb-4">Menu Terlaris</h2>
+                    <p class="text-gray-600 max-w-xl">Pilih varian favoritmu atau pesan paket isi 6 & 12 untuk harga lebih hemat.</p>
+                </div>
+                <div class="mt-6 md:mt-0">
+                    <a href="https://wa.me/6281328059683" class="flex items-center text-brand font-bold hover:text-brand-dark group transition-colors">
+                        Lihat Menu Lengkap <i data-lucide="chevron-right" class="w-5 h-5 ml-1 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Item 1 -->
+                <div class="bg-white rounded-[2rem] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 group">
+                    <div class="h-56 md:h-72 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=800&q=80" alt="[Donat Glaze]" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute top-4 left-4 bg-brand text-white px-4 py-1 rounded-full text-xs font-bold shadow-lg">FAVORIT</div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl md:text-2xl font-bold text-brand-brown mb-3">Donat Mix Glaze</h3>
+                        <p class="text-gray-600 text-sm md:text-base mb-6 leading-relaxed">Paket donat kentang dengan berbagai pilihan rasa glaze premium (Matcha, Taro, Choco, Tiramisu).</p>
+                        <a href="https://wa.me/6281328059683?text=Halo%20Aufa%20Donat,%20saya%20ingin%20memesan%20Donat%20Mix%20Glaze." target="_blank" class="block w-full py-4 bg-white border-2 border-brand text-brand text-center font-bold rounded-2xl hover:bg-brand hover:text-white transition-all shadow-sm active:scale-95">
+                            Pesan Sekarang
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="bg-white rounded-[2rem] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 group">
+                    <div class="h-56 md:h-72 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=800&q=80" alt="[Brownies]" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl md:text-2xl font-bold text-brand-brown mb-3">Brownies Fudgy</h3>
+                        <p class="text-gray-600 text-sm md:text-base mb-6 leading-relaxed">Tekstur brownies yang garing di luar namun lembut dan sangat cokelat di dalam. Menggunakan cokelat asli.</p>
+                        <a href="https://wa.me/6281328059683?text=Halo%20Aufa%20Donat,%20saya%20ingin%20memesan%20Brownies%20Fudgy." target="_blank" class="block w-full py-4 bg-white border-2 border-brand text-brand text-center font-bold rounded-2xl hover:bg-brand hover:text-white transition-all shadow-sm active:scale-95">
+                            Pesan Sekarang
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="bg-white rounded-[2rem] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 group sm:col-span-2 lg:col-span-1">
+                    <div class="h-56 md:h-72 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=800&q=80" alt="[Donat Meses]" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl md:text-2xl font-bold text-brand-brown mb-3">Custom Birthday</h3>
+                        <p class="text-gray-600 text-sm md:text-base mb-6 leading-relaxed">Rayakan hari spesialmu dengan menara donat yang bisa dihias sesuai keinginan dan nama pilihanmu.</p>
+                        <a href="https://wa.me/6281328059683?text=Halo%20Aufa%20Donat,%20saya%20ingin%20tanya%20tentang%20Donat%20Custom%20Ultah." target="_blank" class="block w-full py-4 bg-white border-2 border-brand text-brand text-center font-bold rounded-2xl hover:bg-brand hover:text-white transition-all shadow-sm active:scale-95">
+                            Tanya Custom
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ulasan Section (Responsif Grid) -->
+    <section id="ulasan" class="py-16 md:py-24 bg-brand-brown text-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-brand opacity-10 rounded-full blur-3xl -translate-x-1/2 translate-y-1/2"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16">
+                <div class="flex justify-center items-center mb-6 space-x-1 md:space-x-2 text-brand">
+                    <i data-lucide="star" class="w-6 h-6 md:w-8 md:h-8 fill-current"></i>
+                    <i data-lucide="star" class="w-6 h-6 md:w-8 md:h-8 fill-current"></i>
+                    <i data-lucide="star" class="w-6 h-6 md:w-8 md:h-8 fill-current"></i>
+                    <i data-lucide="star" class="w-6 h-6 md:w-8 md:h-8 fill-current"></i>
+                    <i data-lucide="star" class="w-6 h-6 md:w-8 md:h-8 fill-current opacity-50"></i>
+                </div>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">Apa Kata Mereka?</h2>
+                <p class="text-gray-300 max-w-xl mx-auto text-sm md:text-base italic">"Rating 4.2 dari pelanggan setia kami di Google Maps"</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                <!-- Testi 1 -->
+                <div class="bg-white/5 backdrop-blur-md p-8 rounded-[2rem] border border-white/10 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-brand mb-4">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <p class="text-base md:text-lg italic mb-8 leading-relaxed">"Rasanya enak banget beda dengan yg lain. Harganya murah, pas buat kantong anak kost."</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-brand text-white rounded-full flex items-center justify-center font-black text-xl">M</div>
+                        <div>
+                            <h4 class="font-bold">Moch Fathur</h4>
+                            <p class="text-xs text-gray-400">Local Guide</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testi 2 -->
+                <div class="bg-white/5 backdrop-blur-md p-8 rounded-[2rem] border border-white/10 flex flex-col justify-between md:mt-10 lg:mt-0">
+                    <div>
+                        <div class="flex text-brand mb-4">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <p class="text-base md:text-lg italic mb-8 leading-relaxed">"Donatnya empuk gak bantet. Kentangnya berasa banget. Topingnya gak pelit. The best!"</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-pink-500 text-white rounded-full flex items-center justify-center font-black text-xl">A</div>
+                        <div>
+                            <h4 class="font-bold">Aulia M.</h4>
+                            <p class="text-xs text-gray-400">Pelanggan Tetap</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testi 3 -->
+                <div class="hidden lg:flex bg-white/5 backdrop-blur-md p-8 rounded-[2rem] border border-white/10 flex-col justify-between">
+                    <div>
+                        <div class="flex text-brand mb-4">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <p class="text-base md:text-lg italic mb-8 leading-relaxed">"Sangat recommended untuk hantaran. Penjual ramah dan responsif."</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-blue-500 text-white rounded-full flex items-center justify-center font-black text-xl">I</div>
+                        <div>
+                            <h4 class="font-bold">Iwan Aditya</h4>
+                            <p class="text-xs text-gray-400">Pembeli</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontak & Lokasi (Grid Adaptif) -->
+    <footer id="kontak" class="bg-white pt-20 pb-10 border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 mb-20 items-start">
+                <!-- Branding & Info -->
+                <div class="text-center lg:text-left">
+                    <div class="flex items-center justify-center lg:justify-start mb-6">
+                        <i data-lucide="donut" class="h-10 w-10 text-brand mr-3"></i>
+                        <span class="brand-font text-3xl md:text-4xl text-brand-brown tracking-wide">Aufa Donat & Snack</span>
+                    </div>
+                    <p class="text-gray-600 mb-10 max-w-md mx-auto lg:mx-0 leading-relaxed">
+                        Kami menghadirkan kebahagiaan melalui donat kentang yang dibuat dengan penuh kasih sayang di Kudus.
+                    </p>
+                    
+                    <div class="space-y-8 max-w-sm mx-auto lg:mx-0">
+                        <div class="flex items-start text-left">
+                            <div class="bg-amber-100 p-3 rounded-2xl mr-5 text-brand shrink-0"><i data-lucide="map-pin" class="w-6 h-6"></i></div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 text-lg">Alamat Kami</h4>
+                                <p class="text-gray-500 mt-1">Bendo Lor, Kec. Bae, Kabupaten Kudus, Jawa Tengah 59327</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start text-left">
+                            <div class="bg-amber-100 p-3 rounded-2xl mr-5 text-brand shrink-0"><i data-lucide="phone" class="w-6 h-6"></i></div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 text-lg">WhatsApp</h4>
+                                <a href="https://wa.me/6281328059683" target="_blank" class="text-brand hover:text-brand-dark font-bold text-xl mt-1 block tracking-wider">0813-2805-9683</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start text-left">
+                            <div class="bg-amber-100 p-3 rounded-2xl mr-5 text-brand shrink-0"><i data-lucide="clock" class="w-6 h-6"></i></div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 text-lg">Jam Buka</h4>
+                                <p class="text-gray-500 mt-1">Setiap Hari: 09.00 - Habis</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Map (Responsive Height) -->
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-brand to-brand-light rounded-[2.5rem] blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
+                    <div class="relative bg-gray-100 rounded-[2rem] overflow-hidden border-4 border-white h-[300px] sm:h-[400px] shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1000&q=80" alt="[Peta Lokasi]" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+                        <div class="absolute inset-0 bg-black/20 flex items-center justify-center">
+                            <a href="https://maps.google.com/?q=Aufa+Donat+Snack+Kudus" target="_blank" class="bg-white px-8 py-4 rounded-full shadow-2xl font-bold text-brand-brown hover:bg-brand hover:text-white transition-all transform hover:scale-105 flex items-center gap-2">
+                                <i data-lucide="navigation" class="w-5 h-5"></i> Buka Google Maps
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pt-10 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-6">
+                <p class="text-gray-400 text-sm font-medium">
+                    &copy; 2024 Aufa Donat & Snack Kudus. All rights reserved.
+                </p>
+                <div class="flex space-x-6">
+                    <a href="#" class="w-10 h-10 bg-gray-50 rounded-full flex items-center justify-center text-gray-400 hover:bg-brand hover:text-white transition-all"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                    <a href="#" class="w-10 h-10 bg-gray-50 rounded-full flex items-center justify-center text-gray-400 hover:bg-brand hover:text-white transition-all"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Init Icons
+        lucide.createIcons();
+
+        // Mobile Menu Logic
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const icon = document.getElementById('menu-icon');
+        const links = document.querySelectorAll('.mobile-link');
+
+        function toggleMenu() {
+            menu.classList.toggle('active');
+            const isOpen = menu.classList.contains('active');
+            
+            // Ubah icon menu ke close
+            if(isOpen) {
+                icon.innerHTML = '<line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>';
+            } else {
+                icon.innerHTML = '<line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="6" x2="20" y2="6"></line><line x1="4" y1="18" x2="20" y2="18"></line>';
+            }
+            lucide.createIcons();
+        }
+
+        btn.addEventListener('click', toggleMenu);
+
+        // Tutup menu saat link diklik
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.remove('active');
+                icon.innerHTML = '<line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="6" x2="20" y2="6"></line><line x1="4" y1="18" x2="20" y2="18"></line>';
+                lucide.createIcons();
+            });
+        });
+
+        // Sticky Nav Change on Scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('py-2', 'shadow-md');
+            } else {
+                nav.classList.remove('py-2', 'shadow-md');
+            }
+        });
+    </script>
+</body>
+</html>
